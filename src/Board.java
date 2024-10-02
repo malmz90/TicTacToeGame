@@ -16,18 +16,14 @@ public class Board {
 
     // Method to display the board
     public void displayBoard() {
-
         System.out.println("Current board:");
-        for (int i = 0; i < SIZE; i++) {
-            System.out.print(" " + board[i]);  // Print each cell
-            if ((i + 1) % 3 == 0) {  // After every third element, move to the next line
-                System.out.println();
-                if (i < SIZE - 1) {
-                    System.out.println("-----------");  // Add a separator between rows
-                }
-            } else {
-                System.out.print(" |");  // Add a vertical separator between cells
-            }
-        }
+
+        System.out.println(" " + board[0] + " | " + board[1] + " | " + board[2]);
+        System.out.println("-----------");
+
+        System.out.println(" " + board[3] + " | " + board[4] + " | " + board[5]);
+        System.out.println("-----------");
+
+        System.out.println(" " + board[6] + " | " + board[7] + " | " + board[8]);
     }
 }

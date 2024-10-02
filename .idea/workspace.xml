@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="049c8793-d5b9-453a-ada6-a18c2aefd298" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+    <list default="true" id="049c8793-d5b9-453a-ada6-a18c2aefd298" name="Changes" comment="Board class&#10;Method to resetboard&#10;Method to displayboard">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,11 +84,18 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1727858946681</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Board class&#10;Method to resetboard&#10;Method to displayboard">
+      <created>1727864394398</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1727864394398</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Board class&#10;Method to resetboard&#10;Method to displayboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Board class&#10;Method to resetboard&#10;Method to displayboard" />
   </component>
 </project>
