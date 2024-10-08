@@ -7,7 +7,7 @@ public class Board {
       resetBoard();
     }
 
-    // Method to reset the board to empty spaces
+    // Method reset the board to empty spaces
     public void resetBoard() {
         for (int i = 0; i < SIZE; i++) {
             board[i] = ' ';
@@ -27,7 +27,7 @@ public class Board {
         System.out.println(" " + board[6] + " | " + board[7] + " | " + board[8]);
     }
 
-//    Method to place symbol at position. Returns true if successful, false if invalid move.
+//    Method to place symbol at position.
     public boolean makeMove(int position, char symbol) {
         // Check if the position is valid (1-9) and the cell is empty
         if (position >= 1 && position <= 9 && board[position - 1] == ' ') {

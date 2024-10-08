@@ -3,9 +3,6 @@ import java.util.Scanner;
 public class Game {
     private Board board;
     private Player player1;
-
-
-
     private Player player2;
     private Player currentPlayer;
     private Scanner scanner;
@@ -18,19 +15,15 @@ public class Game {
         scanner = new Scanner(System.in);
     }
 
-//    Method to start the game
+    // Method to start the game and keep it running
     public void start() {
-        boolean playAgain = true;
-        while (playAgain) {
+        while (true) {
             playRound();
-            playAgain = askPlayAgain();
-            if (playAgain) {
-                resetGame();
-            }
+            resetGame();  // Automatically reset the game after each round
         }
-        scanner.close();
     }
 
+    //  Method to play a round of tictactoe
     private void playRound() {
         while (true) {
             board.displayBoard();
@@ -60,23 +53,16 @@ public class Game {
         }
     }
 
-
     private void switchPlayer() {
-       if (currentPlayer == player1) {
-        currentPlayer = player2;
-       } else {
-        currentPlayer = player1;
-       }
-}
-
-    private boolean askPlayAgain() {
-        System.out.print("Do you want to play again? (y/n): ");
-        String response = scanner.next().toLowerCase();
-        return response.equals("y") || response.equals("yes");
+        if (currentPlayer == player1) {
+            currentPlayer = player2;
+        } else {
+            currentPlayer = player1;
+        }
     }
 
     private void resetGame() {
-        board.resetBoard();
-        currentPlayer = player1;
+        board.resetBoard();  // Reset the board
+        currentPlayer = player1;  // Player 1 always starts first
     }
 }
