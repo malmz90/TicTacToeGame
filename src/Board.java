@@ -67,6 +67,5 @@ public class Board {
         return false;
     }
 
-    // Method to display the board
 
 }
