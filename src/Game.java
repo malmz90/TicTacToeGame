@@ -38,28 +38,28 @@ public class Game {
             board.displayBoard();
             System.out.println(currentPlayer.getName() + "'s turn (" + currentPlayer.getSymbol() + ")");
 
-            int position = validatePlayerMove();
+            int position = validatePlayerMove();  // Validate player's input
 
-            if (board.makeMove(position, currentPlayer.getSymbol())) {
-                // Check for win condition
-                if (board.checkWin(currentPlayer.getSymbol())) {
-                    board.displayBoard();
-                    System.out.println(currentPlayer.getName() + " wins!");
-                    currentPlayer.incrementWins();  // Increment win count for the current player
-                    break;
-                }
-                // Check for draw
-                else if (board.isFull()) {
-                    board.displayBoard();
-                    System.out.println("It's a draw!");
-                    break;
-                }
-                switchPlayer();
-            } else {
-                System.out.println("Invalid move. Try again.");
+            // Make the move
+            board.makeMove(position, currentPlayer.getSymbol());
+
+            // Check for win condition
+            if (board.checkWin(currentPlayer.getSymbol())) {
+                board.displayBoard();
+                System.out.println(currentPlayer.getName() + " wins!");
+                currentPlayer.incrementWins();  // Increment win count for the current player
+                break;
             }
+            // Check for draw
+            else if (board.isFull()) {
+                board.displayBoard();
+                System.out.println("It's a draw!");
+                break;
+            }
+            switchPlayer();
         }
     }
+
 
     private int validatePlayerMove() {
         int position = -1;
