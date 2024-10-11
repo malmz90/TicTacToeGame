@@ -1,24 +1,36 @@
 import java.util.Scanner;
 
+import java.util.Random;
+
 public class Game {
     private Board board;
     private Player player1;
     private Player player2;
     private Player currentPlayer;
     private Scanner scanner;
+    private Random random;
 
     public Game() {
         board = new Board();
         scanner = new Scanner(System.in);
+        random = new Random();
 
         // Prompt for player names
         System.out.print("Enter name for Player 1 (X): ");
         String player1Name = scanner.nextLine();
-        player1 = new Player(player1Name, 'X');
+        player1 = new Player(player1Name, 'X', false);
 
-        System.out.print("Enter name for Player 2 (O): ");
-        String player2Name = scanner.nextLine();
-        player2 = new Player(player2Name, 'O');
+        // Choose whether Player 2 is human or AI
+        System.out.print("Do you want to play against a computer? (yes/no): ");
+        String playWithAi = scanner.nextLine();
+
+        if (playWithAi.equals("yes")) {
+            player2 = new Player("Computer", 'O', true);
+        } else {
+            System.out.print("Enter name for Player 2 (O): ");
+            String player2Name = scanner.nextLine();
+            player2 = new Player(player2Name, 'O', false);
+        }
 
         currentPlayer = player1;
     }
@@ -38,7 +50,7 @@ public class Game {
             board.displayBoard();
             System.out.println(currentPlayer.getName() + "'s turn (" + currentPlayer.getSymbol() + ")");
 
-            int position = validatePlayerMove();  // Validate player's input
+            int position = currentPlayer.isAI() ? getAIMove() : validatePlayerMove();  // Check if current player is AI
 
             // Make the move
             board.makeMove(position, currentPlayer.getSymbol());
@@ -60,21 +72,30 @@ public class Game {
         }
     }
 
+    // Method for the AI to randomly select a valid move
+    private int getAIMove() {
+        int position;
+        do {
+            position = random.nextInt(9) + 1;  // Generate random number between 1 and 9
+        } while (!board.makeMove(position, currentPlayer.getSymbol()));
+        return position;
+    }
 
+    // Method to validate player's move
     private int validatePlayerMove() {
         int position = -1;
         while (true) {
             System.out.print("Enter a position (1-9): ");
             try {
                 position = scanner.nextInt();
-                if (position >= 1 && position <= 9) {
+                if (position >= 1 && position <= 9 && board.makeMove(position, currentPlayer.getSymbol())) {
                     return position;
                 } else {
-                    System.out.println("Invalid input. Please enter a number between 1 and 9.");
+                    System.out.println("Invalid move. Please try again.");
                 }
             } catch (Exception e) {
                 System.out.println("Invalid input. Please enter a valid number.");
-                scanner.next();  // Clear the invalid input to prevent an infinite loop
+                scanner.next();  // Clear the invalid input
             }
         }
     }
